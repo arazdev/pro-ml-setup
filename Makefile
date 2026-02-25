@@ -1,4 +1,4 @@
-.PHONY: test lint format notebook daily commit clean setup
+.PHONY: test lint format notebook daily commit clean setup new-lesson
 
 # === Setup ===
 setup:
@@ -24,7 +24,13 @@ format:
 
 # === Jupyter ===
 notebook:
-	jupyter lab --notebook-dir=notebooks
+	jupyter lab
+
+# === Learning ===
+new-lesson:
+	@read -p "Lesson number (e.g. 02): " num; \
+	read -p "Lesson title (e.g. data visualization): " title; \
+	python scripts/new_lesson.py $$num "$$title"
 
 # === Daily Workflow ===
 daily: test lint commit
