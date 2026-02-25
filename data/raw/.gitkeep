@@ -1,0 +1,3 @@
+# Place raw CSV datasets here.
+# These files are ignored by git (see .gitignore).
+# Use data/sample/ for small test datasets that ARE tracked.

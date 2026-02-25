@@ -1,0 +1,53 @@
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data (keep sample data, ignore large raw/processed files)
+data/raw/*.csv
+data/processed/*.csv
+!data/sample/*.csv
+
+# Model artifacts (large files)
+models/*.pkl
+models/*.joblib
+models/*.h5
+models/*.pt
+
+# Outputs
+outputs/*.png
+outputs/*.pdf
+outputs/*.html
+
+# Environment
+.env
+*.log
+
+# Coverage
+.coverage
+htmlcov/
