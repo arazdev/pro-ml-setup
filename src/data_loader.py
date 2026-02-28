@@ -3,7 +3,6 @@ Data Loader Module
 Load, validate, and split CSV datasets.
 """
 
-import os
 from pathlib import Path
 from typing import Optional, Tuple
 
@@ -54,7 +53,8 @@ def validate_dataframe(
         null_pct = df[col].isnull().mean()
         if null_pct > max_null_pct:
             report["issues"].append(
-                f"Column '{col}' has {null_pct:.1%} null values (threshold: {max_null_pct:.1%})"
+                f"Column '{col}' has {null_pct:.1%} null values "
+                f"(threshold: {max_null_pct:.1%})"
             )
 
     report["is_valid"] = len(report["issues"]) == 0

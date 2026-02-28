@@ -35,7 +35,10 @@ def handle_missing_values(
         df[numeric_cols] = df[numeric_cols].fillna(df[numeric_cols].median())
     elif strategy == "mode":
         for col in numeric_cols:
-            df[col] = df[col].fillna(df[col].mode().iloc[0] if not df[col].mode().empty else 0)
+            mode_val = (
+                df[col].mode().iloc[0] if not df[col].mode().empty else 0
+            )
+            df[col] = df[col].fillna(mode_val)
     else:
         raise ValueError(f"Unknown strategy: {strategy}")
 

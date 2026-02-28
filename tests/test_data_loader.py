@@ -2,7 +2,6 @@
 
 import pandas as pd
 import pytest
-from pathlib import Path
 
 from src.data_loader import load_csv, validate_dataframe, split_data, SAMPLE_DIR
 
@@ -53,9 +52,13 @@ class TestValidateDataframe:
         assert report["columns"] == 4
 
     def test_missing_columns(self, sample_df):
-        report = validate_dataframe(sample_df, required_columns=["feature_1", "missing_col"])
+        report = validate_dataframe(
+            sample_df, required_columns=["feature_1", "missing_col"]
+        )
         assert report["is_valid"] is False
-        assert any("Missing required columns" in issue for issue in report["issues"])
+        assert any(
+            "Missing required columns" in issue for issue in report["issues"]
+        )
 
     def test_high_null_pct(self, df_with_nulls):
         report = validate_dataframe(df_with_nulls, max_null_pct=0.3)
@@ -71,5 +74,7 @@ class TestSplitData:
         assert "target" not in X_train.columns
 
     def test_split_ratio(self, sample_df):
-        X_train, X_test, _, _ = split_data(sample_df, target_column="target", test_size=0.3)
+        X_train, X_test, _, _ = split_data(
+            sample_df, target_column="target", test_size=0.3
+        )
         assert len(X_test) == 3  # 30% of 10

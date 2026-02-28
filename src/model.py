@@ -5,7 +5,7 @@ Train, evaluate, and save ML models.
 
 import json
 from pathlib import Path
-from typing import Any, Dict, Optional
+from typing import Any, Dict
 
 import joblib
 import numpy as np
@@ -44,7 +44,10 @@ def train_classifier(
 ) -> Any:
     """Train a classification model."""
     if model_name not in CLASSIFIER_MAP:
-        raise ValueError(f"Unknown classifier: {model_name}. Choose from {list(CLASSIFIER_MAP)}")
+        raise ValueError(
+            f"Unknown classifier: {model_name}. "
+            f"Choose from {list(CLASSIFIER_MAP)}"
+        )
 
     model_class = CLASSIFIER_MAP[model_name]
     model = model_class(**kwargs)
@@ -61,7 +64,10 @@ def train_regressor(
 ) -> Any:
     """Train a regression model."""
     if model_name not in REGRESSOR_MAP:
-        raise ValueError(f"Unknown regressor: {model_name}. Choose from {list(REGRESSOR_MAP)}")
+        raise ValueError(
+            f"Unknown regressor: {model_name}. "
+            f"Choose from {list(REGRESSOR_MAP)}"
+        )
 
     model_class = REGRESSOR_MAP[model_name]
     model = model_class(**kwargs)
@@ -97,7 +103,11 @@ def evaluate_regressor(
         "mae": float(mean_absolute_error(y_test, y_pred)),
         "rmse": float(np.sqrt(mean_squared_error(y_test, y_pred))),
     }
-    print(f"R²: {metrics['r2']:.4f} | MAE: {metrics['mae']:.4f} | RMSE: {metrics['rmse']:.4f}")
+    print(
+        f"R²: {metrics['r2']:.4f} | "
+        f"MAE: {metrics['mae']:.4f} | "
+        f"RMSE: {metrics['rmse']:.4f}"
+    )
     return metrics
 
 
