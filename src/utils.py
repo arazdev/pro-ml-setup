@@ -11,7 +11,6 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 
-
 OUTPUTS_DIR = Path(__file__).resolve().parent.parent / "outputs"
 
 

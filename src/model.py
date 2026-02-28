@@ -20,7 +20,6 @@ from sklearn.metrics import (
     r2_score,
 )
 
-
 MODELS_DIR = Path(__file__).resolve().parent.parent / "models"
 OUTPUTS_DIR = Path(__file__).resolve().parent.parent / "outputs"
 

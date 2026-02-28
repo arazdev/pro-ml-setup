@@ -5,13 +5,13 @@ import pandas as pd
 import pytest
 
 from src.model import (
-    train_classifier,
-    train_regressor,
     evaluate_classifier,
     evaluate_regressor,
-    save_model,
     load_model,
     save_metrics,
+    save_model,
+    train_classifier,
+    train_regressor,
 )
 
 

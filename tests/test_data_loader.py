@@ -3,8 +3,7 @@
 import pandas as pd
 import pytest
 
-from src.data_loader import load_csv, validate_dataframe, split_data, SAMPLE_DIR
-
+from src.data_loader import SAMPLE_DIR, load_csv, split_data, validate_dataframe
 
 # ---- Fixtures ----
 
